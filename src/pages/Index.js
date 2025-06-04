@@ -87,25 +87,25 @@ function Index() {
   ];
 
   return (
-    <div className="p-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Reception Bible Index</h1>
-        <p className="text-gray-600">Quick reference guide to all procedures and information</p>
+    <div className="p-4">
+      <div className="mb-4">
+        <h1 className="text-2xl font-bold text-gray-900 mb-1">Reception Bible Index</h1>
+        <p className="text-sm text-gray-600">Quick reference guide to all procedures and information</p>
       </div>
 
-      <div className="space-y-8">
+      <div className="space-y-4">
         {indexItems.map((category, categoryIndex) => (
-          <div key={categoryIndex} className="border-b border-gray-200 pb-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">{category.category}</h2>
-            <div className="space-y-2">
+          <div key={categoryIndex} className="border-b border-gray-200 pb-3">
+            <h2 className="text-lg font-bold text-gray-900 mb-2">{category.category}</h2>
+            <div className="space-y-1">
               {category.items.map((item, itemIndex) => (
                 <Link
                   key={itemIndex}
                   to={item.path}
-                  className="block p-3 border border-gray-200 hover:bg-gray-50 text-gray-700"
+                  className="block p-2 border border-gray-200 hover:bg-gray-50 text-gray-700"
                 >
-                  <div className="font-medium text-gray-900">{item.title}</div>
-                  <div className="text-sm text-gray-500">
+                  <div className="font-medium text-gray-900 text-sm">{item.title}</div>
+                  <div className="text-xs text-gray-500">
                     {item.path.replace('/', '').replace('-', ' ')} → {item.section}
                   </div>
                 </Link>
@@ -115,9 +115,9 @@ function Index() {
         ))}
       </div>
 
-      <div className="mt-12 p-6 bg-gray-50">
-        <h3 className="text-lg font-bold text-gray-900 mb-3">Emergency Contacts</h3>
-        <div className="space-y-2 text-gray-700">
+      <div className="mt-6 p-3 bg-gray-50">
+        <h3 className="text-sm font-bold text-gray-900 mb-2">Emergency Contacts</h3>
+        <div className="space-y-1 text-xs text-gray-700">
           <div className="flex justify-between">
             <span>Emergency Services:</span>
             <span className="font-medium">999</span>
