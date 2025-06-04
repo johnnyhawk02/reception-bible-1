@@ -63,6 +63,16 @@ function Home() {
           Your comprehensive guide to reception procedures, member management, and daily operations. 
           Everything you need to provide excellent customer service and run smooth operations.
         </p>
+        
+        {/* Complete Index Link */}
+        <div className="mt-8">
+          <Link 
+            to="/index" 
+            className="inline-block p-4 bg-gray-100 border border-gray-300 text-gray-900 font-medium hover:bg-gray-200"
+          >
+            Complete Index - Find Everything Quickly
+          </Link>
+        </div>
       </div>
 
       {/* Quick Actions */}

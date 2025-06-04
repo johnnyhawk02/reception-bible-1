@@ -6,6 +6,7 @@ const Navigation = ({ setSidebarOpen }) => {
 
   const navItems = [
     { path: '/', label: 'Home', description: 'Overview & quick access' },
+    { path: '/index', label: 'Index', description: 'Complete reference guide' },
     { path: '/opening-procedure', label: 'Opening Procedure', description: 'Daily opening checklist' },
     { path: '/dos-and-donts', label: "Do's & Don'ts", description: 'Essential guidelines' },
     { path: '/memberships', label: 'Memberships', description: 'Member management' },
