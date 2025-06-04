@@ -1,72 +1,150 @@
-import SearchBar from '../components/SearchBar'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function Home() {
-  const [searchTerm, setSearchTerm] = useState('')
-
   const sections = [
-    { title: 'Opening Procedure', path: '/opening-procedure', description: 'Daily opening checklist and procedures' },
-    { title: "Do's & Don'ts", path: '/dos-and-donts', description: 'Essential reception guidelines' },
-    { title: 'Memberships', path: '/memberships', description: 'Member management and band procedures' },
-    { title: 'Fitness Classes', path: '/fitness-classes', description: 'Class booking and management' },
-    { title: 'Till Checks', path: '/till-checks', description: 'Mid-day till balancing procedures' },
-    { title: 'End of Day', path: '/end-of-day', description: 'Cash up and closing procedures' },
-    { title: 'FAQs', path: '/faqs', description: 'Common questions and answers' }
+    { 
+      title: 'Opening Procedure', 
+      path: '/opening-procedure', 
+      description: 'Daily opening checklist and procedures'
+    },
+    { 
+      title: "Do's & Don'ts", 
+      path: '/dos-and-donts', 
+      description: 'Essential reception guidelines'
+    },
+    { 
+      title: 'Memberships', 
+      path: '/memberships', 
+      description: 'Member management and band procedures'
+    },
+    { 
+      title: 'Fitness Classes', 
+      path: '/fitness-classes', 
+      description: 'Class booking and management'
+    },
+    { 
+      title: 'Till Checks', 
+      path: '/till-checks', 
+      description: 'Mid-day till balancing procedures'
+    },
+    { 
+      title: 'End of Day', 
+      path: '/end-of-day', 
+      description: 'Cash up and closing procedures'
+    },
+    { 
+      title: 'FAQs', 
+      path: '/faqs', 
+      description: 'Common questions and answers'
+    }
   ]
 
-  const filteredSections = sections.filter(section =>
-    section.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    section.description.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  const quickActions = [
+    { title: 'Emergency Numbers', items: ['999 - Emergency', '0151 288 6727 - Main'] },
+    { title: 'Key Times', items: ['Open: 6:00 AM', 'Close: 10:00 PM', 'Till Check: 2:00 PM'] },
+    { title: 'Important Info', items: ['Always check ID', 'Log all incidents', 'Be professional'] }
+  ]
 
   return (
-    <div>
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-blue-900 mb-4">Reception Bible</h1>
-        <p className="text-xl text-gray-600 mb-6">Your complete guide to reception procedures</p>
+    <div className="p-8 max-w-6xl">
+      {/* Header Section */}
+      <div className="mb-12">
+        <div className="flex items-center mb-6">
+          <div>
+            <h1 className="text-5xl font-bold text-gray-900 mb-2">
+              Reception Bible
+            </h1>
+            <p className="text-xl text-gray-600">
+              Meadows Leisure Centre Complete Staff Guide
+            </p>
+          </div>
+        </div>
+        <p className="text-lg text-gray-600 max-w-3xl leading-relaxed">
+          Your comprehensive guide to reception procedures, member management, and daily operations. 
+          Everything you need to provide excellent customer service and run smooth operations.
+        </p>
       </div>
 
-      <SearchBar onSearch={setSearchTerm} placeholder="Search sections..." />
+      {/* Quick Actions */}
+      <div className="mb-12">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Quick Reference</h2>
+        <div className="space-y-6">
+          {quickActions.map((action, index) => (
+            <div key={index} className="mb-4">
+              <div className="mb-2">
+                <h3 className="font-semibold text-gray-900">{action.title}</h3>
+              </div>
+              <ul className="space-y-1">
+                {action.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="text-sm text-gray-600">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredSections.map(section => (
-          <div key={section.path} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-            <h3 className="text-xl font-semibold text-blue-900 mb-3">{section.title}</h3>
-            <p className="text-gray-600 mb-4">{section.description}</p>
+      {/* Main Sections */}
+      <div className="mb-12">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Procedures & Guidelines</h2>
+        <div className="space-y-4">
+          {sections.map((section, index) => (
             <Link
+              key={index}
               to={section.path}
-              className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+              className="block p-4 text-gray-900 hover:text-gray-600"
             >
-              View Details
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                  {section.title}
+                </h3>
+                <p className="text-sm text-gray-600">
+                  {section.description}
+                </p>
+              </div>
             </Link>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-12 bg-blue-50 rounded-lg p-6">
-        <h2 className="text-2xl font-bold text-blue-900 mb-4">Quick Reference</h2>
-        <div className="grid md:grid-cols-2 gap-4 text-sm">
-          <div>
-            <h3 className="font-semibold mb-2">Emergency Contacts</h3>
-            <p>Duty Manager: Internal extension</p>
-            <p>Retention: 0151-934 2858</p>
-            <p>Harlands: 01444 449024</p>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-2">Important Codes</h3>
-            <p>Voicemail PIN: 112233#</p>
-            <p>Card Machine Startup: 7735</p>
-            <p>Till Float: £50.00 each</p>
-          </div>
+          ))}
         </div>
       </div>
 
-      {filteredSections.length === 0 && (
-        <div className="text-center py-8 text-gray-500">
-          No sections found matching "{searchTerm}"
+      {/* Footer Info */}
+      <div className="mb-8">
+        <div className="space-y-8">
+          <div>
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Need Help?</h3>
+            <p className="text-gray-600 mb-4">
+              If you can't find what you're looking for, don't hesitate to ask a supervisor or check the detailed procedures in each section.
+            </p>
+            <div className="flex items-center text-sm text-gray-700">
+              <span className="mr-2 font-bold">*</span>
+              <span>Always prioritize customer safety and satisfaction</span>
+            </div>
+          </div>
+          <div>
+            <h3 className="text-xl font-bold text-gray-900 mb-4">Contact Information</h3>
+            <div className="space-y-2 text-sm text-gray-600">
+              <div className="flex items-center">
+                <span className="font-medium">Emergency:</span>
+                <span className="ml-2 text-gray-900 font-bold">999</span>
+              </div>
+              <div className="flex items-center">
+                <span className="font-medium">Main Line:</span>
+                <span className="ml-2">0151 288 6727</span>
+              </div>
+              <div className="flex items-center">
+                <span className="font-medium">Email:</span>
+                <span className="ml-2">meadows@sefton.gov.uk</span>
+              </div>
+              <div className="flex items-center">
+                <span className="font-medium">Address:</span>
+                <span className="ml-2">Hall Lane, Maghull, L31 7BB</span>
+              </div>
+            </div>
+          </div>
         </div>
-      )}
+      </div>
     </div>
   )
 }

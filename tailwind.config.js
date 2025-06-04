@@ -6,10 +6,6 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        'meadows-blue': '#2563eb',
-        'meadows-green': '#059669',
-      },
       fontFamily: {
         'sans': ['Inter', 'system-ui', 'sans-serif'],
       },

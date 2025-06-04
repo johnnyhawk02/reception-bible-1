@@ -6,8 +6,15 @@ const FitnessClasses = () => {
         <div className="p-8">
             {/* Page Header */}
             <div className="mb-8">
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">Fitness Classes</h1>
-                <p className="text-gray-600">Booking procedures and class management guidelines</p>
+                <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-gray-700 text-2xl">
+                        🏃
+                    </div>
+                    <div>
+                        <h1 className="text-3xl font-bold text-gray-900">Fitness Classes</h1>
+                        <p className="text-gray-600 mt-1">Booking procedures and class management guidelines</p>
+                    </div>
+                </div>
             </div>
 
             {/* Quick Reference */}

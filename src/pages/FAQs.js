@@ -1,14 +1,7 @@
-import React, { useState } from 'react';
-import SearchBar from '../components/SearchBar';
+import React from 'react';
 import faqsContent from '../content/faqs';
 
 const FAQs = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-
-    const filteredFAQs = faqsContent.filter(faq =>
-        faq.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
     // Parse Q&A format from the content
     const parseQA = (text) => {
         const qIndex = text.indexOf('Q: ');
@@ -24,54 +17,67 @@ const FAQs = () => {
     };
 
     return (
-        <div>
-            <div className="mb-6">
-                <h1 className="text-3xl font-bold text-gray-800 mb-2">Frequently Asked Questions</h1>
-                <p className="text-gray-600 mb-4">Common questions and their standard responses</p>
-                <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <div className="p-8">
+            {/* Page Header */}
+            <div className="mb-8">
+                <div className="mb-4">
+                    <h1 className="text-3xl font-bold text-gray-900">Frequently Asked Questions</h1>
+                    <p className="text-gray-600 mt-1">Common questions and their standard responses</p>
+                </div>
             </div>
-            
+
+            {/* Categories Overview */}
+            <div className="mb-8">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">Categories</h2>
+                <div className="space-y-2 text-gray-700">
+                    <p>• <strong>Till Issues:</strong> Balance problems & cash handling</p>
+                    <p>• <strong>Memberships:</strong> Bands, queries & retention</p>
+                    <p>• <strong>Classes:</strong> Booking rules & procedures</p>
+                    <p>• <strong>Technical:</strong> Card machines & systems</p>
+                </div>
+            </div>
+
+            {/* FAQ Items */}
             <div className="space-y-6">
-                {filteredFAQs.map((faq, index) => {
+                {faqsContent.map((faq, index) => {
                     const { question, answer } = parseQA(faq);
+                    
                     return (
-                        <div key={index} className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-                            <div className="flex items-start mb-3">
-                                <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 flex-shrink-0">
-                                    Q
-                                </span>
-                                <h3 className="text-lg font-semibold text-gray-800 leading-tight">
-                                    {question}
+                        <div key={index} className="mb-6">
+                            <div className="mb-2">
+                                <h3 className="text-lg font-semibold text-gray-900">
+                                    Q: {question}
                                 </h3>
                             </div>
                             
                             {answer && (
-                                <div className="flex items-start ml-11">
-                                    <span className="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 flex-shrink-0">
-                                        A
-                                    </span>
-                                    <p className="text-gray-700 leading-relaxed">{answer}</p>
+                                <div className="ml-4">
+                                    <p className="text-gray-700">A: {answer}</p>
                                 </div>
                             )}
                         </div>
                     );
                 })}
-                
-                {filteredFAQs.length === 0 && searchTerm && (
-                    <div className="text-center py-8">
-                        <p className="text-gray-500">No FAQs found for "{searchTerm}"</p>
-                    </div>
-                )}
             </div>
 
-            {/* Quick Tips */}
-            <div className="mt-8 bg-blue-50 rounded-lg p-6 border border-blue-200">
-                <h3 className="font-bold text-blue-800 mb-3">💡 Customer Service Tips</h3>
-                <div className="text-sm text-blue-700 space-y-2">
-                    <p>• Always greet customers with a smile and friendly tone</p>
-                    <p>• If you don't know the answer, say "Let me find that out for you"</p>
-                    <p>• Escalate complex issues to the duty manager</p>
-                    <p>• Follow up with customers when possible</p>
+            {/* Customer Service Tips */}
+            <div className="mt-8">
+                <h3 className="text-lg font-bold text-gray-900 mb-4">Customer Service Excellence</h3>
+                <div className="space-y-3">
+                    <p className="text-gray-700">• Always greet customers with a smile and friendly tone</p>
+                    <p className="text-gray-700">• If you don't know the answer, say "Let me find that out for you"</p>
+                    <p className="text-gray-700">• Escalate complex issues to the duty manager</p>
+                    <p className="text-gray-700">• Follow up with customers when possible</p>
+                </div>
+            </div>
+
+            {/* Quick Reference */}
+            <div className="mt-8">
+                <h3 className="text-lg font-bold text-gray-900 mb-4">Quick Reference Numbers</h3>
+                <div className="space-y-2 text-gray-700">
+                    <p>• <strong>Voicemail Pin:</strong> 112233#</p>
+                    <p>• <strong>Card Machine Startup:</strong> 7735</p>
+                    <p>• <strong>Retention Team:</strong> 0151-934 2858</p>
                 </div>
             </div>
         </div>
