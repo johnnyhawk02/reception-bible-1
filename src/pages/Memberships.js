@@ -1,5 +1,5 @@
 import React from 'react';
-import membershipsContent from '../content/memberships';
+import membershipsContent, { cancellationProcedures } from '../content/memberships';
 
 const Memberships = () => {
     return (
@@ -61,7 +61,16 @@ const Memberships = () => {
                 <p className="text-gray-700 mb-4"><strong>Address Code Example:</strong> Susan Meadows → MEADS01</p>
                 
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Cancellations & Amendments</h3>
-                <p className="text-gray-700">• {membershipsContent[5]}</p>
+                <p className="text-gray-700 mb-4">• {membershipsContent[5]}</p>
+                
+                <div className="mt-4 p-4 bg-gray-50 border-l-4 border-gray-400">
+                    <h4 className="text-md font-bold text-gray-900 mb-2">{cancellationProcedures.title}</h4>
+                    <div className="space-y-2 text-gray-700 text-sm">
+                        <p><strong>Timing Requirements:</strong> {cancellationProcedures.timingRequirements}</p>
+                        <p><strong>Short Notice Policy:</strong> {cancellationProcedures.shortNoticePolicy}</p>
+                        <p><strong>Quality Assurance:</strong> {cancellationProcedures.qualityAssurance}</p>
+                    </div>
+                </div>
             </div>
 
             {/* Contact Information */}

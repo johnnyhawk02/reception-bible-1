@@ -11,6 +11,9 @@ const Navigation = ({ setSidebarOpen }) => {
     { path: '/dos-and-donts', label: "Do's & Don'ts", description: 'Essential guidelines' },
     { path: '/memberships', label: 'Memberships', description: 'Member management' },
     { path: '/fitness-classes', label: 'Fitness Classes', description: 'Class booking procedures' },
+    { path: '/class-descriptions', label: 'Class Descriptions', description: 'Detailed class information' },
+    { path: '/library', label: 'Library', description: 'Printing payment procedures' },
+    { path: '/aiming-high', label: 'Aiming High', description: 'Activity payment procedures' },
     { path: '/till-checks', label: 'Till Checks', description: 'Cash handling procedures' },
     { path: '/end-of-day', label: 'End of Day', description: 'Closing procedures' },
     { path: '/faqs', label: 'FAQs', description: 'Common questions' }

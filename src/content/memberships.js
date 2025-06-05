@@ -11,4 +11,12 @@ const memberships = [
   "Finding membership without bands: E.S.P – Address codes are identified by: 1st four letters of surname, 1st letter of first name, Followed by 1,2,3 etc. e.g. Susan Meadows Address code: MEADS01. Always confirm address before selection member."
 ];
 
+// Additional cancellation procedures
+export const cancellationProcedures = {
+  title: "Cancelling Memberships",
+  timingRequirements: "Retention need at least 7–10 days to cancel the next upcoming monthly pay date.",
+  shortNoticePolicy: "If it's less, members will have to pay the next direct debit, and then the payments will stop after this payment is taken.",
+  qualityAssurance: "Can we please ensure that all options are discussed with sign-ups to guarantee they have been put on the correct rate. It does not impress retention when people are put on incorrect rates and they have to ring them up to amend the membership they are on."
+};
+
 export default memberships;

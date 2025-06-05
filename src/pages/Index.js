@@ -93,7 +93,7 @@ function Index() {
         <p className="text-sm text-gray-600">Quick reference guide to all procedures and information</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {indexItems.map((category, categoryIndex) => (
           <div key={categoryIndex} className="border-b border-gray-200 pb-3">
             <h2 className="text-lg font-bold text-gray-900 mb-2">{category.category}</h2>
