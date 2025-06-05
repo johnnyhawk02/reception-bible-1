@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PortraitPageWrapper from '../components/PortraitPageWrapper';
 
 function Index() {
   const indexItems = [
@@ -87,16 +88,15 @@ function Index() {
   ];
 
   return (
-    <div className="p-4">
-      <div className="mb-4">
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">Reception Bible Index</h1>
-        <p className="text-sm text-gray-600">Quick reference guide to all procedures and information</p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <PortraitPageWrapper 
+      title="Reception Bible Index" 
+      description="Quick reference guide to all procedures and information"
+    >
+      {/* Single column layout optimized for portrait tablets */}
+      <div className="space-y-3">
         {indexItems.map((category, categoryIndex) => (
-          <div key={categoryIndex} className="border-b border-gray-200 pb-3">
-            <h2 className="text-lg font-bold text-gray-900 mb-2">{category.category}</h2>
+          <div key={categoryIndex} className="border-b border-gray-200 pb-2">
+            <h2 className="text-base font-bold text-gray-900 mb-2 header-portrait-h2">{category.category}</h2>
             <div className="space-y-1">
               {category.items.map((item, itemIndex) => (
                 <Link
@@ -115,8 +115,9 @@ function Index() {
         ))}
       </div>
 
-      <div className="mt-6 p-3 bg-gray-50">
-        <h3 className="text-sm font-bold text-gray-900 mb-2">Emergency Contacts</h3>
+      {/* Emergency contacts - more compact for portrait */}
+      <div className="mt-4 p-3 bg-gray-50">
+        <h3 className="text-sm font-bold text-gray-900 mb-2 header-portrait-h3">Emergency Contacts</h3>
         <div className="space-y-1 text-xs text-gray-700">
           <div className="flex justify-between">
             <span>Emergency Services:</span>
@@ -132,7 +133,7 @@ function Index() {
           </div>
         </div>
       </div>
-    </div>
+    </PortraitPageWrapper>
   );
 }
 

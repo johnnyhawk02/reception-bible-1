@@ -2,3 +2,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Portrait tablet optimizations */
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  /* Optimize for portrait tablets */
+  .portrait-tablet-optimized {
+    padding: 0.5rem;
+  }
+  
+  /* Reduce sidebar width for portrait tablets */
+  .sidebar-portrait {
+    width: 220px !important;
+  }
+  
+  /* Adjust main content margin for smaller sidebar */
+  .content-portrait {
+    margin-left: 220px;
+  }
+  
+  /* Optimize content padding for portrait viewing */
+  .content-area-portrait {
+    padding: 1rem;
+    max-height: calc(100vh - 1rem);
+    overflow-y: auto;
+  }
+  
+  /* Make text slightly smaller but still readable */
+  .text-portrait-optimized {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  /* Compact spacing for portrait mode */
+  .space-y-portrait > * + * {
+    margin-top: 0.75rem;
+  }
+  
+  /* Reduce header sizes for better space usage */
+  .header-portrait-h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .header-portrait-h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .header-portrait-h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+}

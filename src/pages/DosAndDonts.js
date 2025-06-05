@@ -1,18 +1,16 @@
 import React from 'react';
 import dosAndDontsContent from '../content/dosAndDonts';
+import PortraitPageWrapper from '../components/PortraitPageWrapper';
 
 const DosAndDonts = () => {
     return (
-        <div className="p-8">
-            {/* Page Header */}
-            <div className="mb-8">
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">{dosAndDontsContent.title}</h1>
-                <p className="text-gray-600">Essential guidelines for reception staff</p>
-            </div>
-            
+        <PortraitPageWrapper 
+            title={dosAndDontsContent.title}
+            description="Essential guidelines for reception staff"
+        >
             {/* DON'T's Section */}
-            <div className="mb-8">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">DON'T:</h2>
+            <div className="mb-6">
+                <h2 className="text-lg font-bold text-gray-900 mb-3 header-portrait-h2">DON'T:</h2>
                 <div className="space-y-2">
                     {dosAndDontsContent.donts.map((item, index) => (
                         <p key={index} className="text-gray-700">• {item}</p>
@@ -21,8 +19,8 @@ const DosAndDonts = () => {
             </div>
 
             {/* DO's Section */}
-            <div className="mb-8">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">DO:</h2>
+            <div className="mb-6">
+                <h2 className="text-lg font-bold text-gray-900 mb-3 header-portrait-h2">DO:</h2>
                 <div className="space-y-3">
                     {dosAndDontsContent.dos.map((item, index) => (
                         <div key={index} className="text-gray-700">
@@ -42,7 +40,7 @@ const DosAndDonts = () => {
                     ))}
                 </div>
             </div>
-        </div>
+        </PortraitPageWrapper>
     );
 };
 
