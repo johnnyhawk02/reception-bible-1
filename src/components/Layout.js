@@ -6,25 +6,25 @@ const Layout = ({ children }) => {
 
     return (
         <div className="min-h-screen bg-gray-50 portrait-tablet-optimized">
-            {/* Mobile sidebar overlay */}
+            {/* Mobile sidebar overlay - only for small screens */}
             {sidebarOpen && (
                 <div 
-                    className="fixed inset-0 bg-black bg-opacity-25 z-20 lg:hidden"
+                    className="fixed inset-0 bg-black bg-opacity-25 z-20 md:hidden"
                     onClick={() => setSidebarOpen(false)}
                 />
             )}
             
-            {/* Sidebar - optimized for portrait tablets */}
+            {/* Sidebar - permanently visible on tablets and up */}
             <div className={`fixed top-0 left-0 h-full w-64 sidebar-portrait bg-white border-r border-gray-100 z-30 transform transition-transform duration-200 ease-in-out ${
                 sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-            } lg:translate-x-0`}>
+            } md:translate-x-0`}>
                 <Navigation setSidebarOpen={setSidebarOpen} />
             </div>
             
-            {/* Main content - optimized for portrait tablets */}
-            <div className="lg:ml-64 content-portrait">
-                {/* Top bar for mobile */}
-                <div className="lg:hidden flex items-center justify-between p-3 border-b border-gray-100 bg-white">
+            {/* Main content - permanently offset on tablets and up */}
+            <div className="md:ml-64 content-portrait">
+                {/* Top bar for mobile only */}
+                <div className="md:hidden flex items-center justify-between p-3 border-b border-gray-100 bg-white">
                     <button
                         onClick={() => setSidebarOpen(true)}
                         className="p-2 rounded-md hover:bg-gray-50"

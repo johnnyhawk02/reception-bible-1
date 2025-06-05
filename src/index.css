@@ -17,7 +17,7 @@
   
   /* Adjust main content margin for smaller sidebar */
   .content-portrait {
-    margin-left: 220px;
+    margin-left: 220px !important;
   }
   
   /* Optimize content padding for portrait viewing */
@@ -52,5 +52,16 @@
   .header-portrait-h3 {
     font-size: 1.1rem;
     margin-bottom: 0.25rem;
+  }
+}
+
+/* Ensure sidebar stays visible on all tablets and larger screens */
+@media screen and (min-width: 768px) {
+  .sidebar-portrait {
+    width: 220px !important;
+  }
+  
+  .content-portrait {
+    margin-left: 220px !important;
   }
 }
