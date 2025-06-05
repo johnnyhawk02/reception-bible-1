@@ -56,7 +56,7 @@ const PWAInstallPrompt = () => {
       <div className="flex items-center justify-between">
         <div className="flex-1 mr-3">
           <p className="text-sm font-medium">Install Reception Bible</p>
-          <p className="text-xs text-gray-300">Add to home screen for quick access</p>
+          <p className="text-xs text-gray-300">Add to home screen as full app • Works offline</p>
         </div>
         <div className="flex gap-2">
           <button

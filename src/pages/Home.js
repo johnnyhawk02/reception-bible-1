@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import InstallInstructions from '../components/InstallInstructions'
 
 function Home() {
   const sections = [
@@ -154,6 +155,16 @@ function Home() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Install Instructions */}
+      <div className="mt-8 pt-8 border-t border-gray-200">
+        <h2 className="text-lg font-medium text-gray-900 mb-4">💡 Install as App</h2>
+        <p className="text-gray-600 mb-4">
+          For the best experience, install Reception Bible as an app on your tablet. 
+          It will work offline and open like a native app!
+        </p>
+        <InstallInstructions />
       </div>
     </div>
   )
