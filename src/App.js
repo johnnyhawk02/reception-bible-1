@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
+import PWAInstallPrompt from './components/PWAInstallPrompt';
 import Home from './pages/Home';
 import Index from './pages/Index';
 import OpeningProcedure from './pages/OpeningProcedure';
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/faqs" element={<FAQs />} />
         </Routes>
       </Layout>
+      <PWAInstallPrompt />
     </Router>
   );
 };
